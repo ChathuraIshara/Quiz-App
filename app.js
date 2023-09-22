@@ -2,6 +2,8 @@ var express=require('express');
 var mongoose=require('mongoose');
 var cors=require('cors');
 
+var studentcontroller=require('./controllers/studentcontroller');
+
 
 var quizcontroller=require('./controllers/quizcontroller');
 
@@ -13,6 +15,8 @@ app.use(express.json());
 mongoose.connect('mongodb+srv://chathura:test@cluster0.kkdmc6p.mongodb.net/quizapp?retryWrites=true&w=majority');
 
 quizcontroller(app);
+studentcontroller(app);
+
 
 
 app.listen(8000,()=>
