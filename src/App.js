@@ -1,23 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import Home from './components/Home';
+import Quiz from './components/quiz';
+import Result from './components/Result';
+import Admin from './components/Admin';
+import { useState } from 'react';
+
+
 
 function App() {
+
+  const [name,setName]=useState("");
+  const [marks,setMarks]=useState(0);
+
+ 
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home name={name} setName={setName}/>}></Route>
+        <Route path="/quiz" element={<Quiz name={name} marks={marks} setMarks={setMarks}/>}></Route>
+        <Route path="/result" element={<Result  name={name} marks={marks} />}></Route>
+        <Route path="/admin" element={<Admin/>}></Route>
+      </Routes>
+      </BrowserRouter>
+
+    
     </div>
   );
 }
