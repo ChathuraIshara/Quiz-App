@@ -1,52 +1,69 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import '../Home.css'; // Import a custom CSS file for styling
 
-function Home({name,setName})
-{
-   
+function Home({ name, setName }) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  }
 
+  const handleName = (event) => {
+    setName(event.target.value);
+  }
 
-    const handleSubmit=(event)=>
-    {
-        event.preventDefault();
-        
+  return (
+    <div className="container mt-5">
+      <h1 className="text-center text-primary mb-5">Quiz Application</h1>
+      <ul className="list-unstyled">
+        <li className="mb-3 text-success">
+          <span className="larger-text">
+            <i className="fas fa-check-circle mr-2"></i> You will be asked 10 questions one after another
+          </span>
+        </li>
+        <li className="mb-3 text-success">
+          <span className="larger-text">
+            <i className="fas fa-check-circle mr-2"></i> 10 points are awarded for the correct answer
+          </span>
+        </li>
+        <li className="mb-3 text-success">
+          <span className="larger-text">
+            <i className="fas fa-check-circle mr-2"></i> Each question has three options. You can choose only one option
+          </span>
+        </li>
+        <li className="mb-3 text-success">
+          <span className="larger-text">
+            <i className="fas fa-check-circle mr-2"></i> You can review and change your answer before the quiz finishes
+          </span>
+        </li>
+        <li className="mb-3 text-success">
+          <span className="larger-text">
+            <i className="fas fa-check-circle mr-2"></i> The result will be declared at the end of the quiz
+          </span>
+        </li>
+      </ul>
+      <h2 className="mt-5 text-info">Enter your name</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="row justify-content-center">
+          <div className="col-6 text-center">
+            <input
+              onChange={handleName}
+              type="text"
+              name="fname"
+              placeholder="Enter your name"
+              className="form-control mb-3 mt-3 custom-input" // Apply custom input class
+            />
+          </div>
+        </div>
 
-    }
-
-    const handleName=(event)=>
-    {
-        setName(event.target.value);
-
-    }
-
-
-    return <div className="container">
-         <h1 className="text-center m-5">Quiz Application</h1>
-        <ol className="list-unstyled">
-            <li className="mb-2">You will be asked 10 questions one after another</li>
-            <li className="mb-2">10 point is awarded for the correct answer</li>
-            <li className="mb-2">Each question has three options.You can choose only one option</li>
-            <li className="mb-2">You can review and change answer before the quiz finish</li>
-            <li className="mb-2">The result will be declared at the end of the quiz</li>
-        </ol>
-        <h2 className="leading-2">Enter your name</h2>
-        <form onSubmit={handleSubmit}>
-            <div className="row justify-content-center">
-                <div className="col-6 text-center">
-                <input onChange={handleName} type="text" name="fname" placeholder="Enter your name" className="form-control mb-5 mt-3"></input>
-
-                </div>
-            </div>
-         
-            <Link to={'/quiz'} >
-        <button  className="btn btn-dark">Start Quiz</button>
+        <Link to={'/quiz'}>
+          <button className="btn btn-warning mt-3 mb-5">Start Quiz</button>
         </Link>
-
-        </form>
-       
+      </form>
+      <Link to={'/admin'}>
+          <button className="btn btn-secondary mt-2">Add Quiz</button>
+        </Link>
     </div>
-
-
-
+  );
 }
+
 export default Home;

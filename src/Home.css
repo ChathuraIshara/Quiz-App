@@ -1,0 +1,19 @@
+/* Home.css */
+.custom-input {
+    border-color: #007bff; /* Change the border color */
+    border-radius: 8px; /* Add some border radius */
+    padding: 10px; /* Add padding to the input */
+  }
+  
+ 
+  .larger-text {
+    font-size: 18px; /* Adjust the font size to make the text larger */
+    vertical-align: middle; /* Vertically align the text */
+  }
+  
+  /* Style the checkmark icons */
+  .fa-check-circle {
+    color: #28a745; /* Green color for checkmarks */
+    margin-right: 10px; /* Add margin between the icon and text */
+  }
+  
