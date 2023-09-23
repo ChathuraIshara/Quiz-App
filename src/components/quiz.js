@@ -9,6 +9,7 @@ function Quiz({ name, marks, setMarks }) {
   const [currentquestion, setCurrentquestion] = useState(0);
 
   useEffect(() => {
+    
     fetch("http://127.0.0.1:8000/quiz")
       .then((response) => {
         return response.json();
