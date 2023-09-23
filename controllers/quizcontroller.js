@@ -11,7 +11,9 @@ var quizcontroller=(app)=>
     app.get('/quiz',async function(req,res)
     {
         try{
-            var quizes=await Quiz.find({});
+            var quizes = await Quiz.aggregate([
+                { $sample: { size: 10 } }
+            ]);
             res.status(200).json(quizes);
 
         }catch(err)
