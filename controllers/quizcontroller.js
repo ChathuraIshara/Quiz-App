@@ -19,7 +19,7 @@ var quizcontroller=(app)=>
         }catch(err)
         {
             console.log(err.message);
-            res.status(500).json({message:err.message});
+            res.status(500).json({messages:err.message});
         }
     });
 
